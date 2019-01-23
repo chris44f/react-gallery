@@ -1,0 +1,24 @@
+.favourite {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.category {
+  position: absolute;
+  right: 5px;
+  line-height: 1vw;
+}
+
+.caption {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1vw;
+  line-height: 2vw;
+}
+
+img {
+  width: 55%;
+  padding-top: 4vw;
+}

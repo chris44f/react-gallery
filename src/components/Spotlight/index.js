@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import Image from '../Image/index.js';
-import Changer from '../Changer/index.js';
 import './index.css';
-import image1 from '../../assets/1.JPG';
 
-class Scroller extends Component {
+class Spotlight extends Component {
   state = {
-    id: "",
     src: "",
     category: "",
     caption: "",
     favourite: false,
-    alt: "",
     images: [
       {
         id: 1,
@@ -31,27 +27,18 @@ class Scroller extends Component {
     this.setState({imageToFind})
   }
 
-  addImage = () => {
-    this.setState({ images: this.state.images.concat({
-      id: this.state.images.length +1,
-      src: this.state.src,
-      category: this.state.category,
-      caption: this.state.caption,
-      favourite: this.state.favourite,
-      alt: this.state.alt,
-    })})
-  }
-
   render() {
     return (
-      <div>
+      <div className="spotlight">
+        <input type="checkbox" className="favourite"/>
+        <h4 className="category">Category: Jimbob</h4>
         {this.state.images.map(images => (
           <Image
-            id={images.id}
             src={images.src}
             alt={images.alt}
           />
         ))}
+        <h3 className="caption">Caption: I like jimbobs</h3>
       </div>
         // <div>
         //   // <Changer
@@ -66,4 +53,4 @@ class Scroller extends Component {
   }
 }
 
-export default Scroller;
+export default Spotlight;

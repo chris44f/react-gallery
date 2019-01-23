@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Scroller from './components/Scroller/index.js';
+import Gallery from './components/Gallery/index.js';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Scroller />, document.getElementById('root'));
+ReactDOM.render(<Gallery />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
