@@ -1,0 +1,32 @@
+.gallery-title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.scroller {
+  width: 25vw;
+  position: fixed;
+  left: 0;
+  border: 2px solid blue;
+}
+
+.spotlight {
+  width: 40vw;
+  height: 80vh;
+  position: fixed;
+  right: 5vw;
+  border: 1px solid grey;
+}
+
+.spotlight img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.buttons {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+}

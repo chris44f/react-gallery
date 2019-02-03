@@ -1,0 +1,89 @@
+import React, { Component } from 'react';
+import './index.css';
+import Scroller from '../scroller'
+import Spotlight from '../spotlight'
+import Buttons from '../buttons'
+import Img from '../image/ebo.jpg'
+import Img2 from '../image/2.JPG'
+import Img3 from '../image/3.JPG'
+
+const images = [
+  {
+    src: Img,
+    id: 1,
+    alt: "",
+    caption: "Caption 1",
+    category: "Cat1"
+  },
+  {
+    src: Img2,
+    id: 2,
+    alt: "",
+    caption: "Caption 2",
+    category: "Cat2"
+  },
+  {
+    src: Img3,
+    id: 3,
+    alt: "",
+    caption: "Caption 3",
+    category: "Cat3"
+  }
+]
+
+class Main extends Component {
+
+  state = {
+    src: "",
+    caption: "",
+    category: ""
+  }
+
+  handleClick = (src, caption, category) => {
+    this.setState({
+      src: src,
+      caption: caption,
+      category: category
+    })
+  }
+
+  handleChangeCategory = (e) => {
+    this.setState({
+      category: e
+    })
+  }
+
+  handleChangeCaption = (e) => {
+    this.setState({
+      caption: e
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="scroller">
+          <Scroller
+            images={images}
+            handleClick={this.handleClick}
+          />
+        </div>
+        <div className="spotlight">
+          <Spotlight
+            src={this.state.src}
+            caption={this.state.caption}
+            category={this.state.category}
+          />
+        </div>
+        <div className="buttons">
+          <Buttons
+            handleChangeCaption={this.handleChangeCaption}
+            handleChangeCategory={this.handleChangeCategory}
+          />
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Main
