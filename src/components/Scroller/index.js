@@ -1,69 +1,18 @@
 import React, { Component } from 'react';
-import Image from '../Image/index.js';
-import Changer from '../Changer/index.js';
-import './index.css';
-import image1 from '../../assets/1.JPG';
+import Image from '../image'
 
-class Scroller extends Component {
-  state = {
-    id: "",
-    src: "",
-    category: "",
-    caption: "",
-    favourite: false,
-    alt: "",
-    images: [
-      {
-        id: 1,
-        src: "",
-        category: "jamaica",
-        caption: "jamaica",
-        favourite: false,
-        alt: "jamaican image",
-      }
-    ]
-  }
+const Scroller = ({ images, handleClick }) => (
+  <div className="test">
+    {images.map((image) => (
+        <Image
+          src={image.src}
+          id={image.id}
+          caption={image.caption}
+          category={image.category}
+          handleClick={handleClick}
+        />
+    ))}
+  </div>
+)
 
-  changeCaption = (e,id) => {
-    let images = [...this.state.images]
-    const imageToFind = this.state.images.filter((images) => images.id === id)
-    imageToFind[0].caption = e.target.value
-    this.setState({imageToFind})
-  }
-
-  addImage = () => {
-    this.setState({ images: this.state.images.concat({
-      id: this.state.images.length +1,
-      src: this.state.src,
-      category: this.state.category,
-      caption: this.state.caption,
-      favourite: this.state.favourite,
-      alt: this.state.alt,
-    })})
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.images.map(images => (
-          <Image
-            id={images.id}
-            src={images.src}
-            alt={images.alt}
-          />
-        ))}
-      </div>
-        // <div>
-        //   // <Changer
-        //   //   changeCaption={this.changeCaption}
-        //   //   caption={images.caption}
-        //   //   id={images.id}
-        //   // />
-        // </div>
-        // <button onClick={() => this.addImage()}>Add another image</button>
-      // </div>
-    )
-  }
-}
-
-export default Scroller;
+export default Scroller
