@@ -34,28 +34,48 @@ const images = [
 class Main extends Component {
 
   state = {
+    images: images,
     src: "",
     caption: "",
     category: ""
   }
 
-  handleClick = (src, caption, category) => {
+  handleClick = (src, caption, category, id) => {
     this.setState({
       src: src,
       caption: caption,
-      category: category
+      category: category,
+      id: id
     })
   }
 
   handleChangeCategory = (e) => {
     this.setState({
-      category: e
+      category: e,
+    })
+  }
+
+  saveCategory = (id) => {
+    let newImages = [...this.state.images]
+    const imageToUpdate = newImages[id-1]
+    imageToUpdate.category = this.state.category
+    this.setState({
+      imageToUpdate
     })
   }
 
   handleChangeCaption = (e) => {
     this.setState({
-      caption: e
+      caption: e,
+    })
+  }
+
+  saveCaption = (id) => {
+    let newImages = [...this.state.images]
+    const imageToUpdate = newImages[id-1]
+    imageToUpdate.caption = this.state.caption
+    this.setState({
+      imageToUpdate
     })
   }
 
@@ -79,6 +99,9 @@ class Main extends Component {
           <Buttons
             handleChangeCaption={this.handleChangeCaption}
             handleChangeCategory={this.handleChangeCategory}
+            saveCategory={this.saveCategory}
+            saveCaption={this.saveCaption}
+            id={this.state.id}
           />
         </div>
       </div>

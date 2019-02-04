@@ -7,7 +7,7 @@ class Image extends Component {
 
     const { id, src, caption, category, handleClick } = this.props
     return (
-      <div className="imageContainer" onClick={() => handleClick(src, caption, category)}>
+      <div className="imageContainer" onClick={() => handleClick(src, caption, category, id)}>
         <img src={src} alt=""/>
       </div>
     )

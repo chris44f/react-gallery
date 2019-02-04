@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import './index.css'
 
 class Buttons extends Component {
 
   render() {
 
-    const { handleChangeCategory, handleChangeCaption } = this.props
+    const { handleChangeCategory, handleChangeCaption, saveCategory, saveCaption} = this.props
 
     return(
       <div>
-        <input type="text" onChange={(event)=>handleChangeCategory(event.target.value)}/>
-        <input type="text" onChange={(event)=>handleChangeCaption(event.target.value)}/>
+        <div className="update">Update Category:</div>
+        <input type="text" onChange={(event, id)=>handleChangeCategory(event.target.value)}/>
+        <button onClick={()=>saveCategory(this.props.id)}>Save</button>
+        <br />
+        <div className="update">Update Caption:</div>
+        <input type="text" onChange={(event, id)=>handleChangeCaption(event.target.value)}/>
+        <button onClick={()=>saveCaption(this.props.id)}>Save</button>
+        <br />
       </div>
     )
   }

@@ -1,0 +1,9 @@
+input {
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.update {
+  width: 130px;
+  display: inline-block;
+}
