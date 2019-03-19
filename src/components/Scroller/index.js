@@ -5,10 +5,9 @@ const Scroller = ({ images, handleClick }) => (
   <div className="test">
     {images.map((image) => (
         <Image
-          src={image.src}
+          src={image.url}
           id={image.id}
-          caption={image.caption}
-          category={image.category}
+          caption={image.title}
           handleClick={handleClick}
         />
     ))}

@@ -13,39 +13,50 @@ const images = [
     id: 1,
     alt: "",
     caption: "Caption 1",
-    category: "Cat1"
+    category: "Cat1",
+    favourite: false
   },
   {
     src: Img2,
     id: 2,
     alt: "",
     caption: "Caption 2",
-    category: "Cat2"
+    category: "Cat2",
+    favourite: false
   },
   {
     src: Img3,
     id: 3,
     alt: "",
     caption: "Caption 3",
-    category: "Cat3"
+    category: "Cat3",
+    favourite: true
   }
 ]
 
 class Main extends Component {
 
   state = {
-    images: images,
+    images: [],
     src: "",
     caption: "",
-    category: ""
+    category: "",
+    favourite: "",
   }
 
-  handleClick = (src, caption, category, id) => {
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(response => response.json())
+    .then(json => this.setState({ images: json }))
+  }
+
+  handleClick = (src, caption, category, id, favourite) => {
     this.setState({
       src: src,
       caption: caption,
       category: category,
-      id: id
+      id: id,
+      favourite: favourite
     })
   }
 
@@ -79,12 +90,21 @@ class Main extends Component {
     })
   }
 
+  handleFavourite = (id) => {
+    let newImages = [...this.state.images]
+    const imageToUpdate = newImages[id-1]
+    imageToUpdate.favourite = !imageToUpdate.favourite
+    this.setState({
+      imageToUpdate
+    })
+  }
+
   render() {
     return (
       <div>
         <div className="scroller">
           <Scroller
-            images={images}
+            images={this.state.images}
             handleClick={this.handleClick}
           />
         </div>
@@ -93,6 +113,9 @@ class Main extends Component {
             src={this.state.src}
             caption={this.state.caption}
             category={this.state.category}
+            handleFavourite={this.handleFavourite}
+            favourite={this.state.favourite}
+            id={this.state.id}
           />
         </div>
         <div className="buttons">
