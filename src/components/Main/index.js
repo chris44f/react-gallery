@@ -45,9 +45,15 @@ class Main extends Component {
   }
 
   componentDidMount() {
+    this.getData()
+  }
+
+/*speak to Rich - cant seem to use that json with another variable, i.e newArray = json */
+
+  getData = () => {
     fetch('https://jsonplaceholder.typicode.com/photos')
     .then(response => response.json())
-    .then(json => this.setState({ images: json }))
+    .then(json => this.setState({ images: json.slice(0,100) }))
   }
 
   handleClick = (src, caption, category, id, favourite) => {
@@ -84,7 +90,7 @@ class Main extends Component {
   saveCaption = (id) => {
     let newImages = [...this.state.images]
     const imageToUpdate = newImages[id-1]
-    imageToUpdate.caption = this.state.caption
+    imageToUpdate.title = this.state.caption
     this.setState({
       imageToUpdate
     })
