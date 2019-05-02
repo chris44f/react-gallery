@@ -1,7 +1,19 @@
-.spotlightContainer {
-  width: 200px;
+button {
+  position: absolute;
+  top: 5%;
+  left: 5%
 }
 
-.spotlightContainer img{
-  width: 100%;
+h2 {
+  font-family: cursive;
+  text-align: center;
+}
+
+h3 {
+  font-family: cursive;
+  text-align: right;
+}
+
+img {
+    border: 1px solid black;
 }

@@ -41,7 +41,7 @@ class Main extends Component {
     src: "",
     caption: "",
     category: "",
-    favourite: "",
+    favourite: false,
   }
 
   componentDidMount() {
@@ -99,18 +99,22 @@ class Main extends Component {
   handleFavourite = (id) => {
     let newImages = [...this.state.images]
     const imageToUpdate = newImages[id-1]
-    imageToUpdate.favourite = !imageToUpdate.favourite
-    this.setState({
-      imageToUpdate
-    })
+    console.log(imageToUpdate.favourite)
+    // imageToUpdate.favourite = !imageToUpdate.favourite
+    // this.setState({
+    //   imageToUpdate
+    // })
   }
 
   render() {
     return (
       <div>
+        <button onClick={()=>console.log(this.state)}>console</button>
+        <button onClick={()=>this.jsonEdit()}>update</button>
         <div className="scroller">
           <Scroller
             images={this.state.images}
+            favourite={this.state.favourite}
             handleClick={this.handleClick}
           />
         </div>

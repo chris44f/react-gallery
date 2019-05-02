@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import './index.css'
+import Image from '../image'
 
 class Spotlight extends Component {
 
   render() {
-    const { src, caption, category, handleFavourite, favourite} = this.props
+
+    const { id, src, caption, category, handleFavourite, favourite } = this.props
 
     return (
       <div>
-        <h2>Caption: {caption}</h2><button onClick={()=>handleFavourite(this.props.id)}>{favourite ? "On" : "Off"}</button>
-        <img src={src} />
+        <input type="checkbox" onClick={()=>handleFavourite(id)}/>
         <h3>It belongs to the category of {category}</h3>
+        <img src={src} />
+        <h2>{caption}</h2>
       </div>
     )
   }
