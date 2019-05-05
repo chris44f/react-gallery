@@ -107,12 +107,16 @@ class Main extends Component {
               </div>)
     } else {
       return (
-        <div className="scroller-full">
-          <Scroller
-            images={this.state.images}
-            handleClick={this.handleClick}
-          />
-        </div>
+        <div>
+          <h1 className="gallery-title">Welcome to the Gallery!</h1>
+          <h2 className="gallery-title">Click on an image to get started</h2>
+          <div className="scroller-full">
+            <Scroller
+              images={this.state.images}
+              handleClick={this.handleClick}
+            />
+          </div>
+      </div>
       )
     }
   }
@@ -124,7 +128,6 @@ class Main extends Component {
   render() {
     return (
       <div className="gallery-wrapper">
-        <h1 className="gallery-title">Welcome to the Gallery!</h1>
         {this.spotlightRender()}
       </div>
     )

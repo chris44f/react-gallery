@@ -44,22 +44,19 @@
 }
 
 .spotlight {
-  max-width: 40vw;
-  max-height: 80vh;
+  max-width: 35vw;
+  max-height: 60vh;
   box-shadow: 5px 5px 10px 5px black;
   border: 1px solid grey;
   position:relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5vh;
+  margin: 2vh auto 5vh auto;
+  text-align: center;
 }
 
 .spotlight img {
-  max-width: 35vw;
-  max-height: 60vh;
+  max-width: 25vw;
+  max-height: 40vh;
   object-fit: contain;
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
 }
 
 .buttons {
