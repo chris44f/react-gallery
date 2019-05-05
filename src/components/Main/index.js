@@ -7,33 +7,6 @@ import Img from '../image/ebo.jpg'
 import Img2 from '../image/2.JPG'
 import Img3 from '../image/3.JPG'
 
-const images = [
-  {
-    src: Img,
-    id: 1,
-    alt: "",
-    caption: "Caption 1",
-    category: "Cat1",
-    favourite: false
-  },
-  {
-    src: Img2,
-    id: 2,
-    alt: "",
-    caption: "Caption 2",
-    category: "Cat2",
-    favourite: false
-  },
-  {
-    src: Img3,
-    id: 3,
-    alt: "",
-    caption: "Caption 3",
-    category: "Cat3",
-    favourite: true
-  }
-]
-
 class Main extends Component {
 
   state = {
@@ -99,22 +72,16 @@ class Main extends Component {
   handleFavourite = (id) => {
     let newImages = [...this.state.images]
     const imageToUpdate = newImages[id-1]
-    console.log(imageToUpdate.favourite)
-    // imageToUpdate.favourite = !imageToUpdate.favourite
-    // this.setState({
-    //   imageToUpdate
-    // })
+    imageToUpdate.favourite = !this.state.favourite
+    this.setState({ imageToUpdate, favourite: !this.state.favourite })
   }
 
   render() {
     return (
       <div>
-        <button onClick={()=>console.log(this.state)}>console</button>
-        <button onClick={()=>this.jsonEdit()}>update</button>
         <div className="scroller">
           <Scroller
             images={this.state.images}
-            favourite={this.state.favourite}
             handleClick={this.handleClick}
           />
         </div>

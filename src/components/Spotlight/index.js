@@ -10,7 +10,7 @@ class Spotlight extends Component {
 
     return (
       <div>
-        <input type="checkbox" onClick={()=>handleFavourite(id)}/>
+        <button onClick={()=>handleFavourite(id)}>{favourite ? "on" : "off"}</button>
         <h3>It belongs to the category of {category}</h3>
         <img src={src} />
         <h2>{caption}</h2>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Image from '../image'
 
-const Scroller = ({ images, handleClick, favourite }) => (
+const Scroller = ({ images, handleClick }) => (
   <div>
     {images.map((image) => (
         <Image
@@ -9,7 +9,7 @@ const Scroller = ({ images, handleClick, favourite }) => (
           id={image.id}
           caption={image.title}
           category={image.category}
-          favourite={favourite}
+          favourite={image.favourite}
           handleClick={handleClick}
         />
     ))}
