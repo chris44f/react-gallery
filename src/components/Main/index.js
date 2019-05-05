@@ -3,9 +3,6 @@ import './index.css';
 import Scroller from '../scroller'
 import Spotlight from '../spotlight'
 import Buttons from '../buttons'
-import Img from '../image/ebo.jpg'
-import Img2 from '../image/2.JPG'
-import Img3 from '../image/3.JPG'
 
 class Main extends Component {
 
@@ -15,6 +12,7 @@ class Main extends Component {
     caption: "",
     category: "",
     favourite: false,
+    spotlightVisible: false,
   }
 
   componentDidMount() {
@@ -35,7 +33,8 @@ class Main extends Component {
       caption: caption,
       category: category,
       id: id,
-      favourite: favourite
+      favourite: favourite,
+      spotlightVisible: true
     })
   }
 
@@ -76,34 +75,57 @@ class Main extends Component {
     this.setState({ imageToUpdate, favourite: !this.state.favourite })
   }
 
-  render() {
-    return (
-      <div>
-        <div className="scroller">
+  spotlightRender = () => {
+    if (this.state.spotlightVisible===true) {
+      return (<div>
+                <div className="spotlight">
+                  <Spotlight
+                    src={this.state.src}
+                    caption={this.state.caption}
+                    category={this.state.category}
+                    handleFavourite={this.handleFavourite}
+                    favourite={this.state.favourite}
+                    id={this.state.id}
+                    closeSpotlight={this.closeSpotlight}
+                  />
+                </div>
+                <div className="buttons">
+                  <Buttons
+                    handleChangeCaption={this.handleChangeCaption}
+                    handleChangeCategory={this.handleChangeCategory}
+                    saveCategory={this.saveCategory}
+                    saveCaption={this.saveCaption}
+                    id={this.state.id}
+                  />
+                </div>
+                <div className="scroller-horizontal">
+                  <Scroller
+                    images={this.state.images}
+                    handleClick={this.handleClick}
+                  />
+                </div>
+              </div>)
+    } else {
+      return (
+        <div className="scroller-full">
           <Scroller
             images={this.state.images}
             handleClick={this.handleClick}
           />
         </div>
-        <div className="spotlight">
-          <Spotlight
-            src={this.state.src}
-            caption={this.state.caption}
-            category={this.state.category}
-            handleFavourite={this.handleFavourite}
-            favourite={this.state.favourite}
-            id={this.state.id}
-          />
-        </div>
-        <div className="buttons">
-          <Buttons
-            handleChangeCaption={this.handleChangeCaption}
-            handleChangeCategory={this.handleChangeCategory}
-            saveCategory={this.saveCategory}
-            saveCaption={this.saveCaption}
-            id={this.state.id}
-          />
-        </div>
+      )
+    }
+  }
+
+  closeSpotlight = () => {
+    this.setState({ spotlightVisible: false })
+  }
+
+  render() {
+    return (
+      <div className="gallery-wrapper">
+        <h1 className="gallery-title">Welcome to the Gallery!</h1>
+        {this.spotlightRender()}
       </div>
     )
   }

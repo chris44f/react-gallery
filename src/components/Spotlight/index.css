@@ -1,19 +1,53 @@
-button {
-  position: absolute;
-  top: 5%;
-  left: 5%
-}
-
-h2 {
+.spotlight-caption {
   font-family: cursive;
   text-align: center;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-top: 0;
+  margin-bottom: 0
 }
 
-h3 {
+.spotlight-category {
   font-family: cursive;
-  text-align: right;
+  text-align: center;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 img {
     border: 1px solid black;
+}
+
+.empty-star {
+  height: 3em;
+  width: 3em;
+  color: black;
+  position: absolute;
+  top: 1%;
+  left: 2%;
+}
+
+.like-star {
+  height: 3em;
+  width: 3em;
+  color: cyan;
+  position: absolute;
+  top: 1%;
+  left: 2%;
+}
+
+.x-button {
+  font-size: 15px;
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 15px;
+  top: 1%;
+  right: 2%;
+}
+
+.spotlight-wrapper {
+  background-color: #eaeaea;
 }

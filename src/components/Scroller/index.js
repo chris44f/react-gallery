@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Image from '../image'
 
 const Scroller = ({ images, handleClick }) => (
-  <div>
+  <div className="scroller-wrapper">
     {images.map((image) => (
         <Image
           src={image.url}

@@ -2,28 +2,56 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  text-align: center;
+  width: 100%;
 }
 
-.scroller {
-  width: 25vw;
-  position: fixed;
-  left: 0;
+.scroller-horizontal {
+  width: 95vw;
+  position: relative;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  border: 2px solid blue;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 30vh;
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-between;
+}
+
+.scroller-wrapper {
+  display: inherit;
+  flex-direction: inherit;
+  flex-wrap: inherit;
+  justify-content:inherit;
+}
+
+.scroller-full {
+  width: 95vw;
+  height: 90vh;
   margin-left: 1vw;
   margin-top: 1vh;
   border: 2px solid blue;
   overflow-y: scroll;
-  height: 97vh;
-  background-color: #eeeeee
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .spotlight {
   max-width: 40vw;
   max-height: 80vh;
-  position: fixed;
   box-shadow: 5px 5px 10px 5px black;
-  right: 5vw;
   border: 1px solid grey;
+  position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
 }
 
 .spotlight img {
@@ -36,6 +64,6 @@
 
 .buttons {
   position: fixed;
-  bottom: 5vh;
+  top: 30vh;
   right: 5vw;
 }
