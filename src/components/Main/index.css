@@ -60,7 +60,15 @@
 }
 
 .buttons {
-  position: fixed;
-  top: 30vh;
+  position: absolute;
+}
+
+.favourites-filter {
+  position:absolute;
   right: 5vw;
+  top: 10vh;
+  height: 4vh;
+  background-color: cyan;
+  outline: none;
+  border: 1px solid black
 }

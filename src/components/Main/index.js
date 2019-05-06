@@ -13,13 +13,12 @@ class Main extends Component {
     category: "",
     favourite: false,
     spotlightVisible: false,
+    favouritesOnly: false,
   }
 
   componentDidMount() {
     this.getData()
   }
-
-/*speak to Rich - cant seem to use that json with another variable, i.e newArray = json */
 
   getData = () => {
     fetch('https://jsonplaceholder.typicode.com/photos')
@@ -75,6 +74,12 @@ class Main extends Component {
     this.setState({ imageToUpdate, favourite: !this.state.favourite })
   }
 
+  toggleFavourites = () => {
+    let filteredGallery = [...this.state.images]
+    filteredGallery = filteredGallery.filter(image => image.favourite===true)
+    this.setState({ filteredImages: filteredGallery, favouritesOnly: !this.state.favouritesOnly })
+  }
+
   spotlightRender = () => {
     if (this.state.spotlightVisible===true) {
       return (<div>
@@ -105,11 +110,30 @@ class Main extends Component {
                   />
                 </div>
               </div>)
+    } else if (this.state.favouritesOnly===true){
+      return (
+        <div>
+          <h1 className="gallery-title">Welcome to the Gallery!</h1>
+          <h2 className="gallery-title">Click on an image to get started</h2>
+          <button className="favourites-filter" onClick={()=>this.toggleFavourites()}>
+            { this.state.favouritesOnly ? "Show All" : "Show Favourites Only"}
+          </button>
+          <div className="scroller-full">
+            <Scroller
+              images={this.state.filteredImages}
+              handleClick={this.handleClick}
+            />
+          </div>
+      </div>
+      )
     } else {
       return (
         <div>
           <h1 className="gallery-title">Welcome to the Gallery!</h1>
           <h2 className="gallery-title">Click on an image to get started</h2>
+          <button className="favourites-filter" onClick={()=>this.toggleFavourites()}>
+            { this.state.favouritesOnly ? "Show All" : "Show Favourites Only"}
+          </button>
           <div className="scroller-full">
             <Scroller
               images={this.state.images}
